@@ -5,6 +5,11 @@
     <button type="submit">Search</button>
 </form>
 <br>
+ <!-- Map through authors and display view, edit, and delete buttons -->
 <% authors.forEach(author => { %>
     <div><%= author.name %></div>
+    <a href="/authors/<%= author.id %>">View</a>
+    <a href="/authors/<%= author.id %>/edit">Edit</a>
+     <!-- use delete form to delete author -->
+    <%- include('../partials/deleteForm', { url: `/authors/${author.id}`}) %> 
 <% }) %>
